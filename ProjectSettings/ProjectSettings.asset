@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: fba19e8bca8e64e4abb7ce5be2f66535
+  productGUID: a2131034e3264af4ea0333a45a274c1c
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: VR RPG
+  productName: FirstRPG Journey
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -848,14 +848,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: VR RPG
+  metroPackageName: FirstRPG Journey
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: VR RPG
+  metroApplicationDescription: FirstRPG Journey
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -924,10 +924,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: ac723d8c-22d0-4456-afc4-4a307996b39b
+  cloudProjectId: d1834d75-c2f0-474d-a9f8-149f619629f0
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: VR RPG
+  projectName: FirstRPG Journey
   organizationId: jacobgeschwentner
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
