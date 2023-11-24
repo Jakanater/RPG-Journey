@@ -5,18 +5,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 10;
+    public float maxHealth,health = 10f;
+
+    public HealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
         gameObject.tag = "Enemy";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     private void OnCollisionEnter(Collision collision){
@@ -27,6 +24,7 @@ public class Enemy : MonoBehaviour
             if(sword != null)
             {
                 health -= sword.swordDamage;
+                healthBar.updateHealth(health);
                 Debug.Log(health);
                 if(health <= 0)
                 {
