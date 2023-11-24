@@ -19,15 +19,18 @@ public class Enemy : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other) 
-    {
-        if(other.gameObject.tag == "Sword")
+    private void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag == "Sword")
         {
-            Sword sword = gameObject.GetComponent<Sword>();
-            if(sword != null){
+            Debug.Log("Collision");
+            Sword sword = collision.gameObject.GetComponent<Sword>();
+            if(sword != null)
+            {
                 health -= sword.swordDamage;
-                if(health <= 0){
-                    this.gameObject.IsDestroyed();
+                Debug.Log(health);
+                if(health <= 0)
+                {
+                    Destroy(this.gameObject);
                 }
             }
         }
