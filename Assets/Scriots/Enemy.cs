@@ -33,10 +33,10 @@ public class Enemy : MonoBehaviour
                     Destroy(this.gameObject);
                     if(questScript.isQuestActive == true){
                         questScript.killedQuestEnemies++;
+                        Debug.Log(questScript.killedQuestEnemies);
                     }
                 }
             }
         }
-        Debug.Log(questScript.killedQuestEnemies);
     }
 }
