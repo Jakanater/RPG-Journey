@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -27,13 +28,17 @@ public class Enemy : MonoBehaviour
             {
                 health -= sword.swordDamage;
                 healthBar.updateHealth(health);
-                Debug.Log(health);
                 if(health <= 0)
                 {
                     Destroy(this.gameObject);
                     if(questScript.isQuestActive == true){
                         questScript.killedQuestEnemies++;
-                        Debug.Log(questScript.killedQuestEnemies);
+                        questScript.SetTrackerText();
+                        if(questScript.killsNeeded == questScript.killedQuestEnemies){
+                            questScript.questCompleted = true;
+                            questScript.trackerText.color = Color.green;
+                            questScript.trackerTextSubtext.color = Color.green;
+                        }
                     }
                 }
             }
