@@ -7,13 +7,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public SetQuestTracjer questTracker;
-
-    public float maxHealth,health = 10f;
-
     public HealthBar healthBar;
 
     public Quests questScript;
 
+    public float maxHealth,health = 10f;
     public bool enemieKilled = false;
 
     // Start is called before the first frame update

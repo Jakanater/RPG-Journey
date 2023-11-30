@@ -1756,10 +1756,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questTracker: {fileID: 2026641315}
-  maxHealth: 25
-  health: 25
   healthBar: {fileID: 327661036}
   questScript: {fileID: 1546517672}
+  maxHealth: 25
+  health: 25
   enemieKilled: 0
 --- !u!54 &327661035
 Rigidbody:
@@ -7508,14 +7508,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questTracker: {fileID: 2026641315}
-  questButton: {fileID: 1546517669}
-  questText: {fileID: 176812873}
   enemy: {fileID: 327661034}
+  questButton: {fileID: 1546517669}
+  questButtonText: {fileID: 539581962}
+  questText: {fileID: 176812873}
+  questName: {fileID: 1859988967}
+  questDescription: {fileID: 684126663}
   questNumber: 1
   killedQuestEnemies: 0
   killsNeeded: 1
   isQuestActive: 0
   questCompleted: 0
+  questTitles: []
 --- !u!1 &1606394983
 GameObject:
   m_ObjectHideFlags: 0

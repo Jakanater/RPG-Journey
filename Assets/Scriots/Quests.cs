@@ -5,13 +5,19 @@ using TMPro;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using UnityEngine.Experimental.Rendering.RenderGraphModule;
+using System;
+using UnityEditor.MPE;
 public class Quests : MonoBehaviour
 {
     public SetQuestTracjer questTracker;
+    public Enemy enemy;
 
     public Button questButton;
+    public TextMeshProUGUI questButtonText;
     public TextMeshProUGUI questText;
-    public Enemy enemy;
+    public TextMeshProUGUI questName;
+    public TextMeshProUGUI questDescription;
+    public TextMeshProUGUI questReward;
 
     public int questNumber = 1;
     public int killedQuestEnemies = 0;
@@ -20,30 +26,58 @@ public class Quests : MonoBehaviour
     public bool isQuestActive = false;
     public bool questCompleted = false;
 
+    public string[] questTitles;
+
     void Start()
     {
-        questText.text = "Humble Beginnings";
+        questTitles[0] = "Humble Beginnings";
+        questText.text = questTitles[0];
     }
 
     void Update() {
-        if(isQuestActive == true && enemy.health <= 0)
+        if(isQuestActive == true && CheckEnemies() == true)
         {
-            Debug.Log("active");
             killedQuestEnemies++;
             if(killedQuestEnemies == killsNeeded)
             {
+                questCompleted = true;
                 questTracker.trackerText.color = Color.green;
                 questTracker.trackerTextSubtext.color = Color.green;
                 questTracker.trackerTextSubtext.text = killedQuestEnemies + "/" + killsNeeded + " Enemies Killed";
             }
         }
+        CheckQuest();
     }
 
     public void AddButtonListener()
     {
-        isQuestActive = true;
-        questTracker.SetTrackerText();
-        Debug.Log("Pressed");
-        Debug.Log(isQuestActive);
+        if(questCompleted == false){
+            isQuestActive = true;
+            questTracker.SetTrackerText();
+        } else {
+            isQuestActive = false;
+            questTracker.RemoveTrackerText();
+        }
+    }
+
+    private bool CheckEnemies()
+    {
+        if(enemy.health <= 0)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void CheckQuest()
+    {
+        if(questCompleted == true)
+        {
+            questName.color = Color.green;
+            questDescription.color = Color.green;
+            questReward.color = Color.green;
+            questButtonText.text = "Completed";
+        }
     }
 }

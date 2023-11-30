@@ -10,11 +10,19 @@ public class SetQuestTracjer : MonoBehaviour
     public TextMeshProUGUI trackerTextSubtext;
     public Quests quests;
 
-    public void SetTrackerText(){
-        if(quests.questNumber == 1){
+    public void SetTrackerText()
+    {
+        if(quests.questNumber == 1)
+        {
             quests.killsNeeded = 1;
             trackerText.text = "Humble Beginnings";
             trackerTextSubtext.text = quests.killedQuestEnemies + "/" + quests.killsNeeded + " Enemies Killed";
         }
+    }
+
+    public void RemoveTrackerText()
+    {
+        trackerText.text = "";
+        trackerTextSubtext.text = "";
     }
 }
