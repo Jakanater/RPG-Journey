@@ -27,10 +27,11 @@ public class Quests : MonoBehaviour
     public bool questCompleted = false;
 
     public string[] questTitles;
+    public string[] questDescriptions;
+    public string[] questRewards;
 
     void Start()
     {
-        questTitles[0] = "Humble Beginnings";
         questText.text = questTitles[0];
     }
 
@@ -57,6 +58,11 @@ public class Quests : MonoBehaviour
         } else {
             isQuestActive = false;
             questTracker.RemoveTrackerText();
+            questText.text = "";
+            questName.text = "";
+            questDescription.text = "";
+            questReward.text = "";
+            questButtonText.text = "";
         }
     }
 
