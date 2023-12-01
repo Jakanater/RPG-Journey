@@ -18,10 +18,4 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = health;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
