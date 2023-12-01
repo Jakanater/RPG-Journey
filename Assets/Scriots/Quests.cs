@@ -7,10 +7,12 @@ using UnityEngine.UI;
 using UnityEngine.Experimental.Rendering.RenderGraphModule;
 using System;
 using UnityEditor.MPE;
+using System.Linq.Expressions;
 public class Quests : MonoBehaviour
 {
     public SetQuestTracjer questTracker;
     public Enemy enemy;
+    public ExperiencePoints xp;
 
     public Button questButton;
     public TextMeshProUGUI questButtonText;
@@ -19,7 +21,9 @@ public class Quests : MonoBehaviour
     public TextMeshProUGUI questDescription;
     public TextMeshProUGUI questReward;
 
-    public int questNumber = 1;
+    public float[] xpReward;
+
+    public int currentQuest = 1;
     public int killedQuestEnemies = 0;
     public int killsNeeded = 1;
 
@@ -35,15 +39,18 @@ public class Quests : MonoBehaviour
         questText.text = questTitles[0];
     }
 
-    void Update() {
-        if(isQuestActive == true && CheckEnemies() == true)
+    void Update() 
+    {
+        if(isQuestActive && CheckEnemies() && !questCompleted)
         {
             killedQuestEnemies++;
+            Debug.Log(killedQuestEnemies);
+            Debug.Log(killsNeeded);
             if(killedQuestEnemies == killsNeeded)
             {
                 questCompleted = true;
-                questTracker.trackerText.color = Color.green;
-                questTracker.trackerTextSubtext.color = Color.green;
+                Debug.Log(questCompleted);
+                questTracker.Completed();
                 questTracker.trackerTextSubtext.text = killedQuestEnemies + "/" + killsNeeded + " Enemies Killed";
             }
         }
@@ -52,11 +59,12 @@ public class Quests : MonoBehaviour
 
     public void AddButtonListener()
     {
-        if(questCompleted == false){
+        if(!questCompleted){
             isQuestActive = true;
             questTracker.SetTrackerText();
         } else {
             isQuestActive = false;
+            xp.ChangeXP(xpReward[currentQuest - 1]);
             questTracker.RemoveTrackerText();
             questText.text = "";
             questName.text = "";
@@ -68,7 +76,7 @@ public class Quests : MonoBehaviour
 
     private bool CheckEnemies()
     {
-        if(enemy.health <= 0)
+        if(enemy.health <= 0)        
         {
             return true;
         } else {
@@ -78,7 +86,7 @@ public class Quests : MonoBehaviour
 
     public void CheckQuest()
     {
-        if(questCompleted == true)
+        if(questCompleted)
         {
             questName.color = Color.green;
             questDescription.color = Color.green;

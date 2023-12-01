@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class Player : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
     {
         health = maxHealth;
         UpdateHealthText();
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxValue(maxHealth);
     }
 
     void Update()
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Yesssssssss");
             health -= 5;
-            healthBar.updateHealth(health);
+            healthBar.UpdateValue(health);
             UpdateHealthText();
         }
     }
