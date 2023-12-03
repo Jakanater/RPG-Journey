@@ -7,6 +7,8 @@ using UnityEngine.InputSystem.Interactions;
 
 public class Player : MonoBehaviour
 {
+    public Enemy enemy;
+
     public float health = 100f;
     public float maxHealth = 100f;
     public float baseDamage = 0f;
@@ -24,17 +26,37 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        /* if(Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Yesssssssss");
             health -= 5;
             healthBar.UpdateValue(health);
             UpdateHealthText();
+        } */
+    }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            health -= enemy.damage;
+            healthBar.UpdateValue(health);
+            UpdateHealthText();
+            if(health <= 0)
+            {
+                Die();
+            }
+            Debug.Log("Collided with Enemy");
         }
     }
 
     private void UpdateHealthText()
     {
         healthText.text = health + "/" + maxHealth;
+    }
+
+    private void Die()
+    {
+        Destroy(this.gameObject);
     }
 }
