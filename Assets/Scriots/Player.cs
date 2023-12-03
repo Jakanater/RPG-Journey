@@ -1,21 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 
 public class Player : MonoBehaviour
 {
     public Enemy enemy;
+    public HealthBar healthBar;
+    public TextMeshProUGUI healthText;
+    public LoadNextScene next;
 
     public float health = 100f;
     public float maxHealth = 100f;
     public float baseDamage = 0f;
     public float critMultiplier = 2f;
-
-    public HealthBar healthBar;
-    public TextMeshProUGUI healthText;
+    public float healAmount = 5f;
 
     void Start()
     {
@@ -26,13 +29,17 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        /* if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Yesssssssss");
             health -= 5;
             healthBar.UpdateValue(health);
             UpdateHealthText();
-        } */
+        } else if(Input.GetKeyDown(KeyCode.Backspace))
+        {
+            health += healAmount;
+            healthBar.UpdateValue(health);
+            UpdateHealthText();
+        }
     }
 
     private void OnCollisionEnter(Collision other) 
@@ -57,6 +64,6 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        Destroy(this.gameObject);
+        next.LoadScene();
     }
 }

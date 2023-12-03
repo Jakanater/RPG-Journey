@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public float maxHealth,health = 10f;
     public bool enemyKilled = false;
     public float xpReward = 10f;
-    public float damage = 50f;
+    public float damage = 20f;
 
     // Start is called before the first frame update
     void Start()
