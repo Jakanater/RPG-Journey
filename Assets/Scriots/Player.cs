@@ -6,14 +6,17 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Player : MonoBehaviour
-{
+{   
+    public ActionBasedContinuousMoveProvider move;
     public Enemy enemy;
     public HealthBar healthBar;
     public TextMeshProUGUI healthText;
     public LoadNextScene next;
 
+    public float speed = 0;
     public float health = 100f;
     public float maxHealth = 100f;
     public float baseDamage = 0f;
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        speed = move.moveSpeed;
         if(Input.GetKeyDown(KeyCode.Space))
         {
             health -= 5;
