@@ -4493,7 +4493,6 @@ GameObject:
   - component: {fileID: 712900741}
   - component: {fileID: 712900742}
   - component: {fileID: 712900743}
-  - component: {fileID: 712900744}
   m_Layer: 3
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -4855,39 +4854,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &712900744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712900736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5269cca82266fb743a1411d7fc85eb51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1313711687}
-  speedButton:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Speed Button
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: b1dfed42-7e74-4bbf-a545-f4a72d1af252
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: fee754a6-11d4-4221-a05f-c731a2f4a492
-        m_Path: <XRController>{RightHand}/primaryButton
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Speed Button
-        m_Flags: 0
-      m_Flags: 0
-    m_Reference: {fileID: 1855836014308820768, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &713784425
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,6 +5316,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
+  player: {fileID: 0}
   swordDamage: 5
 --- !u!1001 &730769970
 PrefabInstance:
@@ -8239,6 +8206,7 @@ GameObject:
   - component: {fileID: 1313711687}
   - component: {fileID: 1313711688}
   - component: {fileID: 1313711689}
+  - component: {fileID: 1313711690}
   m_Layer: 3
   m_Name: XR Rig
   m_TagString: Player
@@ -8423,7 +8391,6 @@ MonoBehaviour:
   healthBar: {fileID: 1313711686}
   healthText: {fileID: 1470018729}
   next: {fileID: 1313711689}
-  speed: 0
   health: 100
   maxHealth: 100
   baseDamage: 0
@@ -8464,6 +8431,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602768103a3295a48976861258e1f69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1313711690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313711679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5269cca82266fb743a1411d7fc85eb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: {fileID: 1313711684}
+  player: {fileID: 1313711687}
+  speedButton: {fileID: -6123026964421408863, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  attackPButton: {fileID: -5197337242070315457, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &1324555846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4747904710347621765, guid: 9164495e43181654eac199477da8068e, type: 3}

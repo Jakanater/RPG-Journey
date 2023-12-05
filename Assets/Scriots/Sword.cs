@@ -9,6 +9,7 @@ using TMPro;
 
 public class Sword : XRBaseInteractor
 {
+    public Player player;
     public float swordDamage = 5f;
 
     protected override void Start()
@@ -18,7 +19,7 @@ public class Sword : XRBaseInteractor
     // Update is called once per frame
     void Update()
     {
-        
+        swordDamage += player.baseDamage;
     }
 
     private void OnTriggerEnter(Collider other) {
